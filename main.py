@@ -36,5 +36,6 @@ app.register_blueprint(compras_bp)
 def home():
     return render_template('home.html')
 
- with app.app_context():
-        db.create_all()
+
+with app.app_context():
+    db.create_all()

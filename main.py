@@ -36,7 +36,5 @@ app.register_blueprint(compras_bp)
 def home():
     return render_template('home.html')
 
-if __name__=='__main__':
-    with app.app_context():
+ with app.app_context():
         db.create_all()
-    app.run(debug=True)

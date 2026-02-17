@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>registre os seus produtos</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="header">
+    <nav class="menu">
+        <a href="{{ url_for('home') }}"class="btn">home</a>
+    <a href="{{ url_for('registrar.registrar') }}"class="btn">registrar</a>
+        <a href="{{ url_for('compras.compras') }}"class="btn">produtos a venda</a>
+    </nav>
+   <div class="logo">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
+</header>
+<div class="page-center">
+    <div class="form-card">
+        <h1>complete os dados
+        para registrar novos produtos</h1>
+       <form action="{{ url_for('registrar.registrar_produtos') }}" method="POST" enctype="multipart/form-data">
+         nome:<input type="text" name="nomeForm"><br>
+            descricao:<textarea type="text" name="descricaoForm"></textarea>
+            preco: <input type="number" name="precoForm" step="0.01" required>
+            imagem<input type="file" name="imagemForm" id="imagem">
+            <input type='submit' value='enviar'></form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login erro</title>
+</head>
+<body>
+<header class="header">
+    <nav class="menu">
+    <a href="{{ url_for('login.login') }}">Login</a>
+    <a href="{{ url_for('registrar.registrar') }}"class="btn">registrar</a>
+    </nav>
+   <div class="logo">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+
+</header>
+<h1> senha ou nome errado, nao tem uma conta ainda?<a href="{{ url_for('registrar.registrar') }}"class="btn"> crie agora</a></h3></h1>
+</body>
+</html>

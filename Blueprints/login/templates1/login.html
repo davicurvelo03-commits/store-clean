@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<header class="header">
+    <nav class="menu">
+        <a href="{{ url_for('home') }}"class="btn">home</a>
+    <a href="{{ url_for('registrar.registrar') }}"class="btn">registrar</a>
+        <a href="{{ url_for('login.login') }}"class="btn">produtos a venda</a>
+            <a href="{{ url_for('registrar.registrar_produtos') }}"class="btn">registre seus produtos</a>
+
+    </nav>
+   <div class="logo">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</header>
+<div class="page-center">
+    <div class="form-card">
+        <h2>faça seu login</h2>
+
+            <form action=" " method="POST">
+            nome:<input type="text"name="nomeForm"><br>
+            senha:<input type="passworld"name="senhaForm">
+            <input type="submit" value="enviar">
+                <h3>ainda nao tem uma uma conta registrada?<a href="{{ url_for('registrar.registrar') }}"class="btn"> crie agora</a></h3>
+
+            </form>
+    </div>
+</div>
+</body>
+</html>

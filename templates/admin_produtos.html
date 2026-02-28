@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+</head>
+<body>
+<h2>Painel de Produtos</h2>
+
+{% for p in produtos %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px">
+
+<h3>{{ p.nome }}</h3>
+
+<img src="{{ p.imagem }}" width="150">
+
+<p>Preço: {{ p.preco }}</p>
+
+<a href="/deletar_produto/{{ p.id }}">
+<button>Excluir produto</button>
+</a>
+
+</div>
+{% endfor %}
+</body>
+</html>

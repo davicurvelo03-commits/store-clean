@@ -1,5 +1,5 @@
 import os
-from flask import Flask ,render_template
+from flask import Flask ,render_template, redirect
 from flask_login import login_required, login_user, logout_user, current_user, LoginManager
 from db import db
 from model import User ,produto
@@ -46,7 +46,22 @@ app.register_blueprint(compras_bp)
 @app.route('/')
 def home():
     return render_template('home.html')
+@app.route('/admin')
+@login_required
+def admin():
+    produtos = produto.query.all()
+    return render_template("admin_produtos.html", produtos=produtos)
 
+@app.route('/deletar/<int:produto_id>')
+@login_required
+def deletar(id):
+    prod = produto.query.get(id)
+
+    if prod:
+        db.session.delete(prod)
+        db.session.commit()
+
+    return redirect("/admin/produtos")
 
 with app.app_context():
     db.create_all()

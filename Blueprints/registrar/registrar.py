@@ -8,6 +8,8 @@ from db import db
 from werkzeug.security import generate_password_hash
 from model import produto
 from flask_login import LoginManager , login_required
+import cloudinary
+import cloudinary.uploader
 
 registrar_bp = blueprints.Blueprint('registrar', __name__, template_folder='templates registrar')
 
@@ -41,10 +43,8 @@ def registrar_produtos():
         imagem = request.files['imagemForm']
 
         if imagem and imagem.filename != '':
-            nome_arquivo = secure_filename(imagem.filename)
-            caminho = os.path.join('static/uploads', nome_arquivo)
-            imagem.save(caminho)
-            nome_imagem = nome_arquivo
+            resultado = cloudinary.uploader.upload(imagem)
+            url_imagem = resultado["secure_url"]
         else:
             nome_imagem ='default.jpg'
 

@@ -7,14 +7,25 @@ from flask import Blueprint
 from Blueprints.registrar.registrar import registrar_bp
 from Blueprints.login.login import login_bp
 from Blueprints.compras.compras import compras_bp
-import hashlib
+import cloudinary
+import cloudinary.uploader
+
 
 app=Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-UPLOAD_FOLDER = os.path.join(app.root_path, 'static', 'uploads')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+import cloudinary
+import cloudinary.uploader
 
+cloudinary.config(
+    cloud_name="Root",
+    api_key="153365759172451",
+    api_secret="oget1yZqItBxOUpCnRuFtTzWhZE"
+)
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+
+UPLOAD_FOLDER = os.path.join(app.root_path, "static", "uploads")
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 db.init_app(app)
 app.secret_key = 'davicvl'

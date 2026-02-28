@@ -46,7 +46,7 @@ app.register_blueprint(compras_bp)
 @app.route('/')
 def home():
     return render_template('home.html')
-@app.route('"/admin/produtos"')
+@app.route("/admin/produtos")
 @login_required
 def admin():
     produtos = produto.query.all()
@@ -54,8 +54,8 @@ def admin():
 
 @app.route('/deletar/<int:produto_id>')
 @login_required
-def deletar(id):
-    prod = produto.query.get(id)
+def deletar(produto_id):
+    prod = produto.query.get(produto_id)
 
     if prod:
         db.session.delete(prod)

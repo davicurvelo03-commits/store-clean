@@ -46,7 +46,7 @@ app.register_blueprint(compras_bp)
 @app.route('/')
 def home():
     return render_template('home.html')
-@app.route('/admin')
+@app.route('"/admin/produtos"')
 @login_required
 def admin():
     produtos = produto.query.all()

@@ -44,7 +44,7 @@ def registrar_produtos():
 
         if imagem and imagem.filename != '':
             resultado = cloudinary.uploader.upload(imagem)
-            url_imagem = resultado["secure_url"]
+            nome_imagem = resultado["secure_url"]
         else:
             nome_imagem ='default.jpg'
 

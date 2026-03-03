@@ -38,8 +38,8 @@ def registrar_produtos():
     elif request.method == 'POST':
         nome = request.form['nomeForm']
         descricao = request.form['descricaoForm']
-        preco = request.form['precoForm']
-        quantidade = request.form['quantidadeForm']
+        preco = float(request.form['precoForm'] or 0)
+        quantidade = int(request.form['quantidadeForm'] or 0)
         imagem = request.files['imagemForm']
 
         if imagem and imagem.filename != '':

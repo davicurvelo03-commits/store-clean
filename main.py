@@ -3,23 +3,21 @@ from flask import Flask ,render_template, redirect
 from flask_login import login_required, login_user, logout_user, current_user, LoginManager
 from db import db
 from model import User ,produto
-from flask import Blueprint
 from Blueprints.registrar.registrar import registrar_bp
 from Blueprints.login.login import login_bp
 from Blueprints.compras.compras import compras_bp
-import cloudinary
 import cloudinary.uploader
 
 
 app=Flask(__name__)
-import cloudinary
-import cloudinary.uploader
+
 
 cloudinary.config(
-    cloud_name="Root",
-    api_key="153365759172451",
-    api_secret="oget1yZqItBxOUpCnRuFtTzWhZE"
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
 )
+
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 

@@ -1,0 +1,21 @@
+body.dark{
+background:#2b2d31;
+color:white;
+}
+
+body.dark .header{
+background:#1e1f22;
+}
+
+body.dark a{
+color:white;
+}
+
+body.dark .form-card{
+background:#1e1f22;
+}
+
+body.dark button{
+background:#444;
+color:white;
+}

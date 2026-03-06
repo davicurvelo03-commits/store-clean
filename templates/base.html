@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+<header>
 
-{% block content %}
-{% endblock %}
+<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-<script src="{{ url_for('static', filename='theme.js') }}"></script>
+<img src="{{ url_for('static', filename='logo.jpg') }}" class="logo">
+
+</header>
+
+{% block content %}{% endblock %}
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
 
 </body>
 </html>

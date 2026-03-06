@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Store Clean</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<nav class="menu">
+<a href="{{ url_for('login.login') }}">Login</a>
+<a href="{{ url_for('registrar.registrar') }}">Registrar</a>
+<a href="{{ url_for('compras.compras') }}">Produtos</a>
+<a href="{{ url_for('registrar.registrar_produtos') }}">Registrar produto</a>
+</nav>
+
+<div class="logo">
+<img src="{{ url_for('static', filename='logo.jpg') }}" class="logo-img">
+</div>
+
+<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+</header>
+
+<main>
+
+{% block content %}
+{% endblock %}
+
+</main>
+
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+
+</body>
+</html>

@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Store Clean</title>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='modo dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+
+<title>Store Clean</title>
 </head>
 
 <body>
 
 <header class="header">
 
-<nav class="menu">
-<a href="{{ url_for('login.login') }}">Login</a>
-<a href="{{ url_for('registrar.registrar') }}">Registrar</a>
-<a href="{{ url_for('compras.compras') }}">Produtos</a>
-<a href="{{ url_for('registrar.registrar_produtos') }}">Registrar produto</a>
-</nav>
-
 <div class="logo">
 <img src="{{ url_for('static', filename='logo.jpg') }}" class="logo-img">
 </div>
 
-<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+<nav class="menu">
+<a href="{{ url_for('login.login') }}">Login</a>
+<a href="{{ url_for('registrar.registrar') }}">Registrar</a>
+<a href="{{ url_for('compras.compras') }}">Produtos</a>
+<a href="{{ url_for('registrar.registrar_produtos') }}">Registrar produtos</a>
+</nav>
+
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
 </header>
-
-<main>
 
 {% block content %}
 {% endblock %}
 
-</main>
-
-<script src="{{ url_for('static', filename='theme.js') }}"></script>
+<script>
+function toggleTheme(){
+document.body.classList.toggle("dark")
+}
+</script>
 
 </body>
 </html>

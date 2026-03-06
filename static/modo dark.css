@@ -1,21 +1,16 @@
-body.dark{
-background:#2b2d31;
-color:white;
-}
-
 body.dark .header{
 background:#1e1f22;
 }
 
-body.dark a{
+body.dark .menu a{
+color:#e3e3e3;
+}
+
+body.dark .menu a:hover{
 color:white;
 }
 
-body.dark .form-card{
-background:#1e1f22;
-}
-
-body.dark button{
+body.dark .theme-btn{
 background:#444;
 color:white;
 }

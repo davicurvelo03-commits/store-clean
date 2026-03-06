@@ -158,3 +158,25 @@ body {
     color: #333;
     background: #f0f2f5;
 }
+body{
+    background: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* modo escuro */
+
+.dark{
+    background: #121212;
+    color: white;
+}
+
+/* botão */
+
+.theme-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding:10px;
+    cursor:pointer;
+}

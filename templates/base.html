@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+{% block content %}
+{% endblock %}
+
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+
+</body>
+</html>

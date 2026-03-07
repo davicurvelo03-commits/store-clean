@@ -180,3 +180,6 @@ body{
     padding:10px;
     cursor:pointer;
 }
+body{
+transition: background 0.3s ease, color 0.3s ease;
+}

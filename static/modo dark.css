@@ -1,3 +1,8 @@
+body.dark{
+background:#2b2d31;
+color:white;
+}
+
 body.dark .header{
 background:#1e1f22;
 }
@@ -10,7 +15,12 @@ body.dark .menu a:hover{
 color:white;
 }
 
-body.dark .theme-btn{
-background:#444;
+body.dark .form-card{
+background:#1e1f22;
+}
+
+body.dark input{
+background:#2b2d31;
 color:white;
+border:1px solid #444;
 }

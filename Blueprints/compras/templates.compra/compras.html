@@ -2,16 +2,6 @@
 
 {% block content %}
 
-<header class="header">
-    <nav class="menu">
-        <a href="{{ url_for('home') }}"class="btn">home</a>
-    <a href="{{ url_for('registrar.registrar') }}"class="btn">registrar</a>
-        <a href="{{ url_for('compras.compras') }}"class="btn">produtos a venda
-            <a href="{{ url_for('registrar.registrar_produtos') }}"class="btn">registre seus produtos</a>
-    </nav>
-   <div class="logo">
-    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
-</header>
 <h1>esses sao os produtos que estao a venda</h1>
 
         <label class="barra-pesquisa">Pesquisar</label>
@@ -29,7 +19,7 @@
         <p>Quantidade: {{ produto.quantidade }}</p>
         {% if produto.imagem %}
                <img src="{{ produto.imagem }}">
-            {% endif %}
+            {% endfor %}
     </div>
 
 {% endblock %}

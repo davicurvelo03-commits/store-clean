@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>produtos a venda</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='compras.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+
 <header class="header">
     <nav class="menu">
         <a href="{{ url_for('home') }}"class="btn">home</a>
@@ -37,14 +32,4 @@
             {% endif %}
     </div>
 
-{% endfor %}
-    {% extends "base.html" %}
-
-{% block content %}
-
-
 {% endblock %}
-</body>
-
-
-</html>

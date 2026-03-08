@@ -1,29 +1,91 @@
 {% extends "base.html" %}
 
-{% block content %}<header class="header">
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+<header class="header">
     <nav class="menu">
-        <a href="{{ url_for('home') }}"class="btn">home</a>
-    <a href="{{ url_for('registrar.registrar') }}"class="btn">registrar</a>
-        <a href="{{ url_for('compras.compras') }}"class="btn">produtos a venda</a>
-            <a href="{{ url_for('registrar.registrar_produtos') }}"class="btn">registre seus produtos</a>
+        <a href="{{ url_for('home') }}" class="btn">home</a>
+        <a href="{{ url_for('registrar.registrar') }}" class="btn">registrar</a>
+        <a href="{{ url_for('compras.compras') }}" class="btn">produtos a venda</a>
+        <a href="{{ url_for('registrar.registrar_produtos') }}" class="btn">registre seus produtos</a>
+    </nav>
 
-    </nav>   <div class="logo">
-    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
+    </div>
 </header>
-<div class="page-center">
-    <div class="form-card">
-        <h2>faça seu login</h2>
 
-            <form action=" " method="POST">
-            nome:<input type="text"name="nomeForm"><br>
-            senha:<input type="passworld"name="senhaForm">
-            <input type="submit" value="enviar">
-                <h3>ainda nao tem uma uma conta registrada?<a href="{{ url_for('registrar.registrar') }}"class="btn"> crie agora</a></h3>
+
+<div class="container-login">
+
+    <!-- LADO ESQUERDO (PRODUTOS) -->
+
+    <div class="produtos-area">
+
+        <h1>Encontre os melhores <span>produtos</span> em um só lugar.</h1>
+
+        <div class="produtos">
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='produto1.png') }}">
+                <p>Smartwatch</p>
+                <strong>R$ 299,90</strong>
+            </div>
+
+            <div class="card destaque">
+                <img src="{{ url_for('static', filename='produto2.png') }}">
+                <p>Celular</p>
+                <strong>R$ 2.499</strong>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='produto3.png') }}">
+                <p>Fone</p>
+                <strong>R$ 199,90</strong>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='produto4.png') }}">
+                <p>Tênis</p>
+                <strong>R$ 349,90</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LADO DIREITO (LOGIN) -->
+
+    <div class="login-area">
+
+        <div class="form-card">
+
+            <h2>Faça seu login</h2>
+
+            <form method="POST">
+
+                <label>Nome</label>
+                <input type="text" name="nomeForm" placeholder="Digite seu nome">
+
+                <label>Senha</label>
+                <input type="password" name="senhaForm" placeholder="Digite sua senha">
+
+                <input type="submit" value="Entrar" class="btn-login">
 
             </form>
+
+            <h3>
+                Ainda não tem conta?
+                <a href="{{ url_for('registrar.registrar') }}">Crie agora</a>
+            </h3>
+
+        </div>
+
     </div>
+
 </div>
 
 {% endblock %}

@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Store Clean</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='modo dark.css') }}">
+    <!-- CSS geral -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-<title>Store Clean</title>
+    <!-- CSS específico da página -->
+    {% block head %}{% endblock %}
+
 </head>
 
 <body>
 
 <header class="header">
 
-<div class="logo">
-<img src="{{ url_for('static', filename='logo.jpg') }}" class="logo-img">
-</div>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" class="logo-img">
+        <h2>Store Clean</h2>
+    </div>
 
-<nav class="menu">
-<a href="{{ url_for('login.login') }}">Login</a>
-<a href="{{ url_for('registrar.registrar') }}">Registrar</a>
-<a href="{{ url_for('compras.compras') }}">Produtos</a>
-<a href="{{ url_for('registrar.registrar_produtos') }}">Registrar produtos</a>
-</nav>
+    <nav class="menu">
 
+        <a href="{{ url_for('home') }}" class="btn-menu">Home</a>
 
+        <a href="{{ url_for('login') }}" class="btn-menu">Login</a>
+
+        <a href="{{ url_for('registrar.registrar') }}" class="btn-menu">Registrar</a>
+
+        <a href="{{ url_for('compras.compras') }}" class="btn-menu">Produtos</a>
+
+        <a href="{{ url_for('registrar.registrar_produtos') }}" class="btn-menu destaque">
+            Vender produto
+        </a>
+
+    </nav>
 
 </header>
 
-<button class="theme-btn" onclick="toggleTheme()">🌙</button>
-{% block content %}
-{% endblock %}
 
-<script>
-function toggleTheme(){
-document.body.classList.toggle("dark")
-}
-</script>
-<script src="{{ url_for('static', filename='theme.js') }}"></script></body>
+<main class="conteudo">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<footer class="footer">
+
+    <p>© 2026 Store Clean</p>
+
+</footer>
+
+</body>
 </html>

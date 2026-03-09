@@ -1,90 +1,52 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+<div class="login-container">
 
-<header class="header">
-    <nav class="menu">
-        <a href="{{ url_for('home') }}" class="btn">home</a>
-        <a href="{{ url_for('registrar.registrar') }}" class="btn">registrar</a>
-        <a href="{{ url_for('compras.compras') }}" class="btn">produtos a venda</a>
-        <a href="{{ url_for('registrar.registrar_produtos') }}" class="btn">registre seus produtos</a>
-    </nav>
+<div class="login-produtos">
 
-    <div class="logo">
-        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
-    </div>
-</header>
+<div class="login-card">
+<img src="{{ url_for('static', filename='img/smartwatch.jpg') }}">
+<p>Smartwatch</p>
+<p>R$ 299,90</p>
+</div>
 
+<div class="login-card">
+<img src="{{ url_for('static', filename='img/fone.jpg') }}">
+<p>Fone</p>
+<p>R$ 199,90</p>
+</div>
 
-<div class="container-login">
+<div class="login-card">
+<img src="{{ url_for('static', filename='img/tenis.jpg') }}">
+<p>Tênis</p>
+<p>R$ 349,90</p>
+</div>
 
-    <!-- LADO ESQUERDO (PRODUTOS) -->
+</div>
 
-    <div class="produtos-area">
+<div class="login-form">
 
-        <h1>Encontre os melhores <span>produtos</span> em um só lugar.</h1>
+<h2>Faça seu login</h2>
 
-        <div class="produtos">
+<form method="POST">
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='produto1.png') }}">
-                <p>Smartwatch</p>
-                <strong>R$ 299,90</strong>
-            </div>
+<label>Nome</label>
+<input type="text" name="nomeForm">
 
-            <div class="card destaque">
-                <img src="{{ url_for('static', filename='produto2.png') }}">
-                <p>Celular</p>
-                <strong>R$ 2.499</strong>
-            </div>
+<label>Senha</label>
+<input type="password" name="senhaForm">
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='produto3.png') }}">
-                <p>Fone</p>
-                <strong>R$ 199,90</strong>
-            </div>
+<button type="submit">Entrar</button>
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='produto4.png') }}">
-                <p>Tênis</p>
-                <strong>R$ 349,90</strong>
-            </div>
+</form>
 
-        </div>
-
-    </div>
-
-
-    <!-- LADO DIREITO (LOGIN) -->
-
-    <div class="login-area">
-
-        <div class="form-card">
-
-            <h2>Faça seu login</h2>
-
-            <form method="POST">
-
-                <label>Nome</label>
-                <input type="text" name="nomeForm" placeholder="Digite seu nome">
-
-                <label>Senha</label>
-                <input type="password" name="senhaForm" placeholder="Digite sua senha">
-
-                <input type="submit" value="Entrar" class="btn-login">
-
-            </form>
-
-            <h3>
-                Ainda não tem conta?
-                <a href="{{ url_for('registrar.registrar') }}">Crie agora</a>
-            </h3>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 

@@ -2,25 +2,27 @@
 
 {% block content %}
 
-<h1>esses sao os produtos que estao a venda</h1>
+<div class="lista-produtos">
 
-        <label class="barra-pesquisa">Pesquisar</label>
-        <input class="barra-pesquisa input" type="text">
-    </div>
+{% for produto in produtos %}
+
+<div class="produto">
+
+<h3>{{produto.nome}}</h3>
+
+<p>{{produto.descricao}}</p>
+
+<p>Preço: R$ {{produto.preco}}</p>
+
+<p>Quantidade: {{produto.quantidade}}</p>
+
+<img src="{{ url_for('static', filename=produto.imagem) }}" width="200">
+
 </div>
 
-<div class="lista-produtos">
-{% for produto in produtos %}
-   <div class="produto-card">
+{% endfor %}
 
-        <h3>{{ produto.nome }}</h3>
-        <p>{{ produto.descricao }}</p>
-        <p>Preço: R$ {{ produto.preco }}</p>
-        <p>Quantidade: {{ produto.quantidade }}</p>
-        {% if produto.imagem %}
-               <img src="{{ produto.imagem }}">
-        {% endif %}
-    </div>
+</div>
     {% endfor %}
 </div>
 {% endblock %}

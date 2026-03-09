@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block head %}
+{% extends "base.html" %}
+
+{% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 {% endblock %}
 
@@ -8,27 +11,12 @@
 
 <div class="login-container">
 
-<div class="login-produtos">
+<div class="login-produto-grande">
 
-<div class="login-card">
-<img src="{{ url_for('static', filename='img/smartwatch.jpg') }}">
-<p>Smartwatch</p>
-<p>R$ 299,90</p>
-</div>
-
-<div class="login-card">
 <img src="{{ url_for('static', filename='img/fone.jpg') }}">
-<p>Fone</p>
-<p>R$ 199,90</p>
-</div>
-
-<div class="login-card">
-<img src="{{ url_for('static', filename='img/tenis.jpg') }}">
-<p>Tênis</p>
-<p>R$ 349,90</p>
-</div>
 
 </div>
+
 
 <div class="login-form">
 
@@ -49,5 +37,7 @@
 </div>
 
 </div>
+
+{% endblock %}
 
 {% endblock %}

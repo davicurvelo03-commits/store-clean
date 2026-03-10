@@ -65,3 +65,14 @@ cursor:pointer;
 .login-form button:hover{
 background:#1f4fb3;
 }
+.login-titulo{
+font-size:40px;
+font-weight:bold;
+max-width:500px;
+margin-bottom:30px;
+color:#333;
+}
+
+.login-titulo span{
+color:#2d6cdf;
+}

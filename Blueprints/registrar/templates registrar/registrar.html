@@ -1,33 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>registrar</title>
-</head>
-<body>
-<header class="header">
-    <nav class="menu">
-    <a href="{{ url_for('login.login') }}">Login</a>
-    <a href="{{ url_for('home') }}"class="btn">home</a>
-        <a href="{{ url_for('compras.compras') }}"class="btn">produtos a venda</a>
-            <a href="{{ url_for('registrar.registrar_produtos') }}"class="btn">registre seus produtos</a>
 
-    </nav>
-   <div class="logo">
-    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo-img">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% extends "base.html" %}
 
-</header>
-<div class="page-center">
-    <div class="form-card">
-        <h1>complete os dados
-        para criar um novo usario</h1>
-        <form action=" " method="POST">
-         nome:<input type="text"name="nomeForm"><br>
-        senha:<input type="text"name="senhaForm">
-        <input type="submit" value="enviar">
-    </div>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-produto-grande">
+
+<h1 class="login-titulo">
+Encontre os melhores <span>produtos</span> em um só lugar.
+</h1>
+
+<img src="{{ url_for('static', filename='img/smartwatch.png') }}">
+
 </div>
+
+
+<div class="login-form">
+
+<h2>Faça seu login</h2>
+
+<form method="POST">
+
+<label>Nome</label>
+<input type="text" name="nomeForm">
+
+<label>Senha</label>
+<input type="password" name="senhaForm">
+
+<button type="submit">enviar</button>
+
 </form>
-</body>
-</html>
+
+</div>
+
+</div>
+
+
+{% endblock %}

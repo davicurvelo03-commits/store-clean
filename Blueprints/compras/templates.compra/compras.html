@@ -2,21 +2,29 @@
 
 {% block content %}
 
+<h2 class="titulo-secao">Produtos disponíveis</h2>
+
 <div class="lista-produtos">
 
 {% for produto in produtos %}
 
-<div class="produto">
+<div class="produto-card">
 
+<div class="produto-img">
+<img src="{{ url_for('static', filename=produto.imagem) }}">
+</div>
+
+<div class="produto-info">
 <h3>{{produto.nome}}</h3>
 
-<p>{{produto.descricao}}</p>
+<p class="descricao">{{produto.descricao}}</p>
 
-<p>Preço: R$ {{produto.preco}}</p>
+<p class="preco">R$ {{produto.preco}}</p>
 
-<p>Quantidade: {{produto.quantidade}}</p>
+<p class="quantidade">Estoque: {{produto.quantidade}}</p>
 
-<img src="{{ url_for('static', filename=produto.imagem) }}" width="200">
+<button class="btn-comprar">Comprar</button>
+</div>
 
 </div>
 

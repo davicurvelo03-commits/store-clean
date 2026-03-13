@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
- <link rel="stylesheet" href="{{ url_for('static', filename='compras.css') }}">
-<h2 class="titulo-secao">Produtos disponíveis</h2>
+<link rel="stylesheet" href="{{ url_for('static', filename='compras.css') }}">
+<div class="banner"></div>
+<div class="banner">
+
+<div class="banner-texto">
+
+<h1>Compre e venda com facilidade</h1>
+
+<p>Encontre produtos incríveis perto de você</p>
+
+<a href="/vender" class="btn-banner">Vender agora</a>
+
+</div>
+
+</div>
 
 <div class="lista-produtos">
 

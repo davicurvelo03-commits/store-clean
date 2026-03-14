@@ -70,66 +70,13 @@ color:white;
 background:#1e4fb8;
 }
 .banner{
-height:300px;
-background:linear-gradient(90deg,#6a00ff,#a300ff);
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-align:center;
-}
-
-.banner-texto h1{
-font-size:40px;
-margin-bottom:10px;
-}
-
-.banner-texto p{
-font-size:18px;
-margin-bottom:20px;
-}
-
-.banner-texto input{
-padding:12px;
-width:300px;
-border:none;
-border-radius:5px;
-margin-right:10px;
-}
-
-.banner-texto button{
-padding:12px 20px;
-background:#ffc107;
-border:none;
-border-radius:5px;
-cursor:pointer;
-font-weight:bold;
-}
-.banner{
-width:100%;
-height:280px;
+width:95%;
+height:320px;
+margin:auto;
+margin-top:20px;
+margin-bottom:40px;
 background-image:url("/static/img/baner.jpg");
 background-size:cover;
 background-position:center;
-margin-bottom:40px;
 border-radius:10px;
-}
-
-.banner-texto h1{
-font-size:40px;
-margin-bottom:10px;
-}
-
-.banner-texto p{
-font-size:18px;
-margin-bottom:20px;
-}
-
-.btn-banner{
-background:white;
-color:#2d6cdf;
-padding:12px 25px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
 }

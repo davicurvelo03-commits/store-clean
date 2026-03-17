@@ -1,12 +1,15 @@
 import os
 from flask import Flask ,render_template, redirect
-from flask_login import login_required, login_user, logout_user, current_user, LoginManager
+from flask_login import login_required, LoginManager
 from db import db
 from model import User ,produto
 from Blueprints.registrar.registrar import registrar_bp
 from Blueprints.login.login import login_bp
 from Blueprints.compras.compras import compras_bp
+from Blueprints.compras.compras import pagamento_bp
 import cloudinary.uploader
+from dotenv import load_dotenv
+load_dotenv()
 
 
 app=Flask(__name__)
@@ -18,12 +21,12 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET")
 )
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+database_url = os.getenv("DATABASE_URL")
 
-
-UPLOAD_FOLDER = os.path.join(app.root_path, "static", "uploads")
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+if database_url and database_url.strip() != "":
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///trabalho.db"
 
 db.init_app(app)
 app.secret_key = 'davicvl'
@@ -40,6 +43,7 @@ def load_user(user_id):
 app.register_blueprint(registrar_bp)
 app.register_blueprint(login_bp)
 app.register_blueprint(compras_bp)
+app.register_blueprint(pagamento_bp)
 
 @app.route('/')
 def home():
@@ -63,3 +67,6 @@ def deletar(produto_id):
 
 with app.app_context():
     db.create_all()
+
+if __name__ == "__main__":
+    app.run(debug=True)

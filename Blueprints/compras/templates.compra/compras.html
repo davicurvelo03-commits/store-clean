@@ -21,9 +21,11 @@
 
 <p class="preco">R$ {{produto.preco}}</p>
 
-<p class="quantidade">Estoque: {{produto.quantidade}}</p>
+    <p class="quantidade">Estoque: {{produto.quantidade}}</p>
 
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar">
+    <a href="{{ url_for('pagamento.pagar', id=produto.id) }}">Comprar</a>
+</button>
 </div>
 
 </div>

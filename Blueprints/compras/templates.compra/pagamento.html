@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pagamento.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ESQUERDA -->
+    <div class="box">
+
+        <h2>Finalizar Compra</h2>
+
+        <div class="produto">
+            <img src="{{ produto.imagem }}" alt="produto">
+
+            <div class="info">
+                <h3>{{ produto.nome }}</h3>
+                <p>Preço unitário: <span id="preco">{{ produto.preco }}</span> R$</p>
+            </div>
+        </div>
+
+        <div class="quantidade">
+            <label>Quantidade:</label>
+            <input type="number" id="qtd" value="1" min="1">
+        </div>
+
+        <div class="total-box">
+            <span>Total:</span>
+            <strong>R$ <span id="total">{{ produto.preco }}</span></strong>
+        </div>
+
+        <div class="pagamento">
+            <h3>Método de pagamento</h3>
+
+            <label class="opcao"><input type="radio" name="pagamento"> Pix</label>
+            <label class="opcao"><input type="radio" name="pagamento"> Cartão</label>
+            <label class="opcao"><input type="radio" name="pagamento"> Boleto</label>
+        </div>
+
+        <button class="btn">Finalizar Compra</button>
+
+    </div>
+
+    <!-- DIREITA (ENDEREÇO) -->
+    <div class="endereco-box">
+
+        <h2>Endereço</h2>
+
+        <input type="text" placeholder="Nome completo">
+        <input type="text" placeholder="Rua">
+        <input type="text" placeholder="Número">
+        <input type="text" placeholder="Cidade">
+        <input type="text" placeholder="Estado">
+        <input type="text" placeholder="CEP">
+
+        <button class="btn-endereco">Salvar Endereço</button>
+
+    </div>
+
+</div>
+
+<script>
+    const preco = document.getElementById("preco");
+    const qtd = document.getElementById("qtd");
+    const total = document.getElementById("total");
+
+    function atualizarTotal(){
+        let valor = parseFloat(preco.innerText);
+        let quantidade = parseInt(qtd.value);
+        total.innerText = (valor * quantidade).toFixed(2);
+    }
+
+    qtd.addEventListener("input", atualizarTotal);
+</script>
+
+</body>
+</html>

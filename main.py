@@ -24,11 +24,9 @@ cloudinary.config(
 database_url = os.getenv("DATABASE_URL")
 
 if database_url:
-    # Corrige o prefixo do Postgres (Render usa postgres://)
     if database_url.startswith("postgres://"):
         database_url = database_url.replace("postgres://", "postgresql://", 1)
 
-    # Garante SSL (necessário no Render)
     if "sslmode" not in database_url:
         database_url += "?sslmode=require"
 
